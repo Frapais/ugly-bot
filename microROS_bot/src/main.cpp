@@ -7,6 +7,9 @@
 
 #include <std_msgs/msg/int32.h>
 
+#include <encoders.h>
+
+
 // #if !defined(MICRO_ROS_TRANSPORT_ARDUINO_SERIAL)
 // #error This example is only avaliable for Arduino framework with serial transport.
 // #endif
@@ -34,7 +37,7 @@ void timer_callback(rcl_timer_t * timer, int64_t last_call_time) {
   RCLC_UNUSED(last_call_time);
   if (timer != NULL) {
     RCSOFTCHECK(rcl_publish(&publisher, &msg, NULL));
-    msg.data++;
+    msg.data=updateEncoderL();
   }
 }
 
@@ -44,6 +47,9 @@ void setup() {
 
   char ssid[] = "Spiti Network";
   char psk[]= "SP191215";
+
+  // Initialize encoders
+  encodersSetup();
 
   set_microros_wifi_transports(ssid, psk, agent_ip, agent_port);
   // Configure serial transport
