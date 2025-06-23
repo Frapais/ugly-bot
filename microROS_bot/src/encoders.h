@@ -5,11 +5,12 @@
 #include "MT6701.h"
 
 // Pin definitions
-#define CS_PIN_L  7
-#define CS_PIN_R  8
+#define CS_PIN_L  6
+#define CS_PIN_R  7
 
 // Function declarations
 void encodersSetup();
-void updateEncoders();
+long updateEncoderR();
+long updateEncoderL();
 
 #endif // ENCODERS_H
