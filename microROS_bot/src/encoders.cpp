@@ -21,7 +21,7 @@ void encodersSetup() {
     Serial.println("Encoders initialized");
 }
 
-Int32 updateEncoderL() {
+long updateEncoderL() {
     // Read angles
     float angle_l = encoder_l.angleRead();
 
@@ -46,7 +46,7 @@ Int32 updateEncoderL() {
     return(incremental_l);
 }
 
-Int32 updateEncoderR() {
+long updateEncoderR() {
     // Read angles
     float angle_r = encoder_r.angleRead();
 
