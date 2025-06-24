@@ -11,15 +11,17 @@
 #define INTB_1 8
 #define INTB_2 9
 
+#define MAX_PWM 120 // Maximum speed for the motors, adjust as needed
+
 //Define Variables we'll be connecting to
-double   Setpoint1, Setpoint2, InputL, InputR, OutputL, OutputR;
+double   SetpointL, SetpointR, InputL, InputR, OutputL, OutputR;
 
 //Specify the links and initial tuning parameters
-double Kpl=100, Kil=10000, Kdl=1;
-double Kpr=100, Kir=10000, Kdr=1;
+double Kpl=1.2, Kil=1, Kdl=0.03;
+double Kpr=1.3, Kir=1, Kdr=0.03;
 
-PID myPIDL(&InputL, &OutputL, &  Setpoint1, Kpl, Kil, Kdl, DIRECT);
-PID myPIDR(&InputR, &OutputR, &  Setpoint1, Kpr, Kir, Kdr, DIRECT);
+PID myPIDL(&InputL, &OutputL, &  SetpointL, Kpl, Kil, Kdl, DIRECT);
+PID myPIDR(&InputR, &OutputR, &  SetpointR, Kpr, Kir, Kdr, DIRECT);
 
 
 void setup()
@@ -30,8 +32,8 @@ void setup()
   InputL = updateEncoderL();
   InputR = updateEncoderR();
 
-  Setpoint1 = 1492; //encoder ticks for 1 meter
-  Setpoint2 = 0; //encoder ticks for 0 meter
+  SetpointL = 1492; //LEFT encoder ticks for 1 meter
+  SetpointR = 1492; //RIGHT encoder ticks for 1 meter
 
   //turn the PID on
   myPIDL.SetMode(AUTOMATIC);
@@ -39,8 +41,8 @@ void setup()
 
   myPIDL.SetSampleTime(10);
   myPIDR.SetSampleTime(10);
-  myPIDL.SetOutputLimits(0, 100); // PID output limits for left motor
-  myPIDR.SetOutputLimits(0, 100); // PID output limits for right motor
+  myPIDL.SetOutputLimits(-MAX_PWM, MAX_PWM); // PID output limits for left motor
+  myPIDR.SetOutputLimits(-MAX_PWM, MAX_PWM); // PID output limits for right motor
 }
 
 void loop()
@@ -71,7 +73,7 @@ void loop()
     analogWrite(INTA_2, 0);
   } else {
     analogWrite(INTA_1, 0);
-    analogWrite(INTA_2, OutputL);
+    analogWrite(INTA_2, -OutputL);
   }
 
   if (OutputR > 0) {
@@ -79,23 +81,7 @@ void loop()
     analogWrite(INTB_2, 0);
   } else {
     analogWrite(INTB_1, 0);
-    analogWrite(INTB_2, OutputR);
+    analogWrite(INTB_2, -OutputR);
   }
-
-  // For testing purposes, let's just toggle the motor outputs
-  // This will turn on one motor at a time for 1 second each
-  // analogWrite(INTA_1, 90);
-  // analogWrite(INTA_2, 0);
-  // analogWrite(INTB_1, 90);
-  // analogWrite(INTB_2, 0);
-    
-  // delay(1000); // Wait for 1 second
-
-  // analogWrite(INTA_1, 0);
-  // analogWrite(INTA_2, 90);
-  // analogWrite(INTB_1, 0);
-  // analogWrite(INTB_2, 90);
-
-  // delay(1000); // Wait for 1 second
   
 }
