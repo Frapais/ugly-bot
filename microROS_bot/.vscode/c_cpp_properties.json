@@ -10,6 +10,7 @@
             "includePath": [
                 "/home/frapais/microros_ws/src/ugly-bot/microROS_bot/include",
                 "/home/frapais/microros_ws/src/ugly-bot/microROS_bot/src",
+                "/home/frapais/microros_ws/src/ugly-bot/microROS_bot/.pio/libdeps/esp32-c3-devkitm-1/PID",
                 "/home/frapais/microros_ws/src/ugly-bot/microROS_bot/.pio/libdeps/esp32-c3-devkitm-1/MT6701-arduino/src",
                 "/home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 "/home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
@@ -249,6 +250,7 @@
                 "path": [
                     "/home/frapais/microros_ws/src/ugly-bot/microROS_bot/include",
                     "/home/frapais/microros_ws/src/ugly-bot/microROS_bot/src",
+                    "/home/frapais/microros_ws/src/ugly-bot/microROS_bot/.pio/libdeps/esp32-c3-devkitm-1/PID",
                     "/home/frapais/microros_ws/src/ugly-bot/microROS_bot/.pio/libdeps/esp32-c3-devkitm-1/MT6701-arduino/src",
                     "/home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     "/home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
@@ -487,6 +489,8 @@
             "defines": [
                 "PLATFORMIO=60118",
                 "ARDUINO_ESP32C3_DEV",
+                "ARDUINO_USB_MODE=1",
+                "ARDUINO_USB_CDC_ON_BOOT=1",
                 "HAVE_CONFIG_H",
                 "MBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"",
                 "UNITY_INCLUDE_CONFIG_H",

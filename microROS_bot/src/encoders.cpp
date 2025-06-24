@@ -18,7 +18,14 @@ void encodersSetup() {
     SPI.begin();
     encoder_l.initializeSSI(CS_PIN_L);
     encoder_r.initializeSSI(CS_PIN_R);
-    Serial.println("Encoders initialized");
+
+    // Reset encoder values
+    prev_angle_l = 0.0;
+    prev_angle_r = 0.0;
+    incremental_l = 0;
+    incremental_r = 0;
+
+    Serial.println("Encoders initialized and values reset");
 }
 
 long updateEncoderL() {
@@ -34,7 +41,6 @@ long updateEncoderL() {
     }
     incremental_l += (long)(delta_l);
 
-   
     // Update previous angles
     prev_angle_l = angle_l;
 
@@ -49,7 +55,6 @@ long updateEncoderL() {
 long updateEncoderR() {
     // Read angles
     float angle_r = encoder_r.angleRead();
-
 
     // Calculate incremental values for right encoder (reversed direction)
     float delta_r = angle_r - prev_angle_r;
