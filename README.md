@@ -73,4 +73,4 @@ This project is under active development. Stay tuned for:
 This project is open-sourced under the MIT License.
 
 ## ✍️ Author
-Konstantinos Paraskevas
+[Konstantinos Paraskevas](https://www.linkedin.com/in/konstantinos-paraskevas-827b9b144/)
