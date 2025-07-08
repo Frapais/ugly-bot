@@ -7,12 +7,6 @@
 #include <PID_v1.h>
 #include <encoders.h>
 
-// WiFi micro-ROS agent config
-const IPAddress kAgentIP(192, 168, 68, 64);
-const uint16_t kAgentPort = 8888;
-char ssid[] = "Spiti Network";
-char psk[]  = "SP191215";
-
 // ROS node config
 const char* kNodeName = "uglybot_diffdrive_node";
 const char* kSubscriberTopic = "cmd_vel";
@@ -42,7 +36,7 @@ volatile double velocityForward = 0.0; // m/s
 volatile double velocityRotate = 0.0;  // rad/s
 
 unsigned long lastControlTime = 0;
-unsigned long lastCmdVelTime = 0; // Add this global variable
+unsigned long lastCmdVelTime = 0;
 const unsigned long CMD_VEL_TIMEOUT = 500; // ms
 
 // micro-ROS entities
@@ -93,8 +87,8 @@ void setup() {
   SetpointL = InputL;
   SetpointR = InputR;
 
-  // micro-ROS WiFi transport
-  set_microros_wifi_transports(ssid, psk, kAgentIP, kAgentPort);
+  // micro-ROS Serial transport
+  set_microros_serial_transports(Serial);
 
   delay(2000);
   connection_state = ConnectionState::kWaitingForAgent;

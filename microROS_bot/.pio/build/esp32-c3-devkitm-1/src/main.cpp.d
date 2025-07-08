@@ -254,28 +254,7 @@
  .pio/libdeps/esp32-c3-devkitm-1/micro_ros_platformio/libmicroros/include/rmw_microros/ping.h \
  .pio/libdeps/esp32-c3-devkitm-1/micro_ros_platformio/libmicroros/include/rmw_microros/timing.h \
  .pio/libdeps/esp32-c3-devkitm-1/micro_ros_platformio/libmicroros/include/rmw_microros/custom_transport.h \
- .pio/libdeps/esp32-c3-devkitm-1/micro_ros_platformio/platform_code/arduino/wifi/micro_ros_transport.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFi.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPv6Address.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiType.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiSTA.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiGeneric.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_smartconfig.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/wifi_provisioning/include/wifi_provisioning/manager.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/protocomm/include/common/protocomm.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/protocomm/include/security/protocomm_security.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/wifi_provisioning/include/wifi_provisioning/wifi_config.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiAP.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiScan.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiClient.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/cores/esp32/Client.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiServer.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/cores/esp32/Server.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/cores/esp32/Udp.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/cores/esp32/cbuf.h \
- /home/frapais/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
+ .pio/libdeps/esp32-c3-devkitm-1/micro_ros_platformio/platform_code/arduino/serial/micro_ros_transport.h \
  .pio/libdeps/esp32-c3-devkitm-1/micro_ros_platformio/libmicroros/include/rcl/rcl.h \
  .pio/libdeps/esp32-c3-devkitm-1/micro_ros_platformio/libmicroros/include/rcl/init.h \
  .pio/libdeps/esp32-c3-devkitm-1/micro_ros_platformio/libmicroros/include/rcl/allocator.h \
