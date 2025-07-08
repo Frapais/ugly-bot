@@ -40,9 +40,9 @@ Follow these steps to run the micro-ROS Agent and observe messages from the ESP3
     ```
     📚 Reference: [micro-ROS FreeRTOS Tutorial](https://micro.ros.org/docs/tutorials/core/first_application_rtos/freertos/)
    
-3. **Run the micro-ROS Agent (UDP, port 8888):**
+3. **Run the micro-ROS Agent (Serial)**
    ```bash
-   ros2 run micro_ros_agent micro_ros_agent udp4 --port 8888
+   ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0
    ```
    📚 Reference: [micro-ROS Linux Tutorial](https://micro.ros.org/docs/tutorials/core/first_application_linux/)
    
