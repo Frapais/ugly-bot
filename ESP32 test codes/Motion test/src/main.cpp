@@ -49,8 +49,8 @@ void setup() {
     InputR = updateEncoderR();
 
     // Set initial motion (example: forward motion at 0.5 m/s and rotation at 0.0 rad/s)
-    velocityForward = 0.0;
-    velocityRotate = 1.0;
+    velocityForward = 0.2;
+    velocityRotate = 0.0;
 
     lastControlTime = millis();
 }

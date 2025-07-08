@@ -25,7 +25,7 @@ void encodersSetup() {
     incremental_l = 0;
     incremental_r = 0;
 
-    Serial.println("Encoders initialized and values reset");
+    // Serial.println("Encoders initialized and values reset");
 }
 
 long updateEncoderL() {

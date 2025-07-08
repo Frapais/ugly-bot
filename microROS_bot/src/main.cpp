@@ -37,7 +37,7 @@ volatile double velocityRotate = 0.0;  // rad/s
 
 unsigned long lastControlTime = 0;
 unsigned long lastCmdVelTime = 0;
-const unsigned long CMD_VEL_TIMEOUT = 500; // ms
+const unsigned long CMD_VEL_TIMEOUT = 1000; // ms
 
 // micro-ROS entities
 rclc_executor_t executor;
@@ -64,7 +64,7 @@ void SubscriptionCallback(const void* msgin);
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("[INIT] Starting micro-ROS diffdrive node...");
+  //Serial.println("[INIT] Starting micro-ROS diffdrive node...");
 
   // Motor pins
   pinMode(INTA_1, OUTPUT);
@@ -113,8 +113,8 @@ void loop() {
     lastControlTime = currentTime;
 
     // Calculate wheel velocities
-    double velocityL = velocityForward - (velocityRotate * WHEEL_BASE / 2.0);
-    double velocityR = velocityForward + (velocityRotate * WHEEL_BASE / 2.0);
+    double velocityL = velocityForward - (velocityRotate * (WHEEL_BASE / 2.0));
+    double velocityR = velocityForward + (velocityRotate * (WHEEL_BASE / 2.0));
 
     // Calculate target encoder ticks for each wheel
     double targetTicksL = velocityL * TICKS_PER_METER * (CONTROL_INTERVAL / 1000.0);
@@ -157,24 +157,24 @@ void HandleConnectionState() {
   switch (connection_state) {
     case ConnectionState::kWaitingForAgent:
       if (RMW_RET_OK == rmw_uros_ping_agent(200, 3)) {
-        Serial.println("[ROS] Agent found, establishing connection...");
+        //Serial.println("[ROS] Agent found, establishing connection...");
         connection_state = ConnectionState::kConnecting;
       }
       break;
 
     case ConnectionState::kConnecting:
       if (CreateEntities()) {
-        Serial.println("[ROS] Connected and ready!");
+        //Serial.println("[ROS] Connected and ready!");
         connection_state = ConnectionState::kConnected;
       } else {
-        Serial.println("[ROS] Connection failed, retrying...");
+        //Serial.println("[ROS] Connection failed, retrying...");
         connection_state = ConnectionState::kWaitingForAgent;
       }
       break;
 
     case ConnectionState::kConnected:
       if (RMW_RET_OK != rmw_uros_ping_agent(200, 3)) {
-        Serial.println("[ROS] Agent disconnected!");
+        //Serial.println("[ROS] Agent disconnected!");
         connection_state = ConnectionState::kDisconnected;
       } else {
         rclc_executor_spin_some(&executor, RCL_MS_TO_NS(kExecutorTimeout));
@@ -183,7 +183,7 @@ void HandleConnectionState() {
 
     case ConnectionState::kDisconnected:
       DestroyEntities();
-      Serial.println("[ROS] Waiting for agent...");
+      //Serial.println("[ROS] Waiting for agent...");
       connection_state = ConnectionState::kWaitingForAgent;
       break;
   }
@@ -225,6 +225,12 @@ void SubscriptionCallback(const void* msgin) {
   const geometry_msgs__msg__Twist* msg = (const geometry_msgs__msg__Twist*)msgin;
   velocityForward = msg->linear.x;
   velocityRotate  = msg->angular.z;
+  //Serial.print("[ROS] Received cmd_vel: ");
+  //Serial.print("linear.x = ");
+  //Serial.print(velocityForward);
+  //Serial.print(", angular.z = ");
+  //Serial.println(velocityRotate);
+  
   lastCmdVelTime = millis(); // Update timestamp on every message
 
   // If both velocities are zero, reset setpoints to current encoder values
