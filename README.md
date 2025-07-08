@@ -1,6 +1,7 @@
 # 🤖 Ugly Bot
-
 A project exploring communication between an **ESP32-C3 board** and **ROS 2 (Jazzy)** using **micro-ROS** and **PlatformIO**.
+
+<img src="https://github.com/Frapais/ugly-bot/blob/main/3D%20Renders/Profile%20naked.png" alt="profile_naked" width="200"/> <img src="https://github.com/Frapais/ugly-bot/blob/main/3D%20Renders/Profile.png" alt="profile" width="193"/> <img src="https://github.com/Frapais/ugly-bot/blob/main/Photos/IMG_20250624_220913_c.JPG" alt="profile" width="183"/>
 
 ---
 
@@ -72,4 +73,4 @@ This project is under active development. Stay tuned for:
 This project is open-sourced under the MIT License.
 
 ## ✍️ Author
-Konstantinos Paraskevas
+[Konstantinos Paraskevas](https://www.linkedin.com/in/konstantinos-paraskevas-827b9b144/)
